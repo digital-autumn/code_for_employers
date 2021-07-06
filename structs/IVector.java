@@ -2,7 +2,7 @@ package structs;
 public interface IVector <T> 
 {
     /**
-     *Adds generic object to vector
+     *Adds object to vector
      * @param data
      */
     public void add (T data);
@@ -14,7 +14,7 @@ public interface IVector <T>
     public void delete (int index);
 
     /**
-     *Returns an object of generic type
+     *Returns an object
      * @param i
      * @return
      */
