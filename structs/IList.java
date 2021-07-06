@@ -9,13 +9,13 @@ public interface IList <T>
 
     /**
      * This function deletes the data passed into it from the linked list.  
-     *
+     * @param data
      */
 
     public void delete(T data);
 
     /**
-     * This method finds a generic object then return true if object is in the list and
+     * This method finds a object then returns true if object is in the list and
      * false otherwise. 
      * If object is at the head or tail of the list time complexity is O(1) otherwise
      * O(n) time to find 
