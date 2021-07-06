@@ -7,8 +7,8 @@ public class Main
         IList<String> list = new LinkedListImp<>();
         list.append("I want");
         list.append("a job");
-        list.append("at SSI");
-        list.append("Schaefer");
+        list.append("hope this");
+        list.append("works.");
 
         list.print();
 
