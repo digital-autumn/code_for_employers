@@ -2,13 +2,13 @@ package structs;
 public interface IList <T> 
 {
     /**
-     * adds object to the tail of the list
+     * adds object to the tail of the list.
      * @param data
      */
     public void append (T data);
 
     /**
-     * This function deletes the data that is 
+     * This function deletes the data passed into it from the linked list.  
      *
      */
 
@@ -25,7 +25,7 @@ public interface IList <T>
     public boolean find(T data);
 
     /**
-     * Prints the contents of the Linked List to console in O(n) time
+     * Prints the contents of the Linked List to console
      */
     public void print();
     
