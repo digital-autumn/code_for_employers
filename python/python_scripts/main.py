@@ -6,8 +6,7 @@ def main():
     switchMonitor = 3
     userValue = 0.0
     keyName = ""
-    #outer try catches KeyboardInterrupt inner try parses user input to ensure that it is a number
-    #and to convert the value to a float
+    
     try:
         while True:
             try:
