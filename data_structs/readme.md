@@ -1,1 +1,1 @@
-## This are some datastructs that I created.  
+## These are some data structs that I created.  
