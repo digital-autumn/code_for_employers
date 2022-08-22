@@ -17,7 +17,7 @@ void invertedIndex(Word * wordArray, Page * pageArray, StringIntMap & wordTable,
 	}
 }
 
-void gPageRank(Page pageArray *, int pSize, StringIntMap & pageI)
+void gPageRank(Page * pageArray, int pSize, StringIntMap & pageI)
 {
 	for (int i =0; i < pSize; i++)
 		pageArray[i].gWeight = 1.0 / pSize;
