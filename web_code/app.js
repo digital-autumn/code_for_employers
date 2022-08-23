@@ -13,6 +13,9 @@ app.get("/", (req, res) => {
     res.send("<h1>Homepage</h1>");
 });
 
+app.post("/createProfile", (req, res) =>{
+        
+});
 
 app.listen(PORT, (error) => {
     if (error) throw error;
