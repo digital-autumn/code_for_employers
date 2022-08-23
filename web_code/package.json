@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend of web application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/job-code-repository/code_for_employers.git"
+  },
+  "author": "Chance",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/job-code-repository/code_for_employers/issues"
+  },
+  "homepage": "https://github.com/job-code-repository/code_for_employers#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
