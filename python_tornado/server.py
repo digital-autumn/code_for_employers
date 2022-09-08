@@ -12,7 +12,7 @@ db_manager = database_manager.DatabaseManager()
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("<h1>aWeber Assesesment</h1>")
+        self.write("<h1>CRUD Application</h1>")
 
 
 # Recieves widget object from JSON body and stores it in the database
