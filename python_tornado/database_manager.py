@@ -30,7 +30,7 @@ class DatabaseManager:
 
     # opens connections to database
     def open_conn(self):
-        return sqlite3.connect("assessment.db")
+        return sqlite3.connect("crud.db")
 
     # returns formatted date and time
     def date_formatted(self):
