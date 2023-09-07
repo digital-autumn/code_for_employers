@@ -4,7 +4,7 @@ public class LinkedListImpl <T> implements IList <T>{
     private Node head, tail;
     private int size;
 
-    protected class Node{
+    private class Node{
         protected T data;
         protected Node next, prev;
 
