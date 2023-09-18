@@ -1,7 +1,7 @@
 openapi: 1.0.0
 info:
-  title: Assessment Api
-  description: For aWeber Assessment
+  title: Widget Builder
+  description: Builds widgets and and stores them in a database
   version: 0.1
 
 servers:

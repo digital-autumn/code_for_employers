@@ -4,7 +4,10 @@ import time
 
 
 class DatabaseManager:
-    def __init__(self):      
+    def __init__(self):
+        self.query = None
+        self.c = None
+        self.conn = None
         self.create_database()
 
     # creates database and widgets table
@@ -29,7 +32,7 @@ class DatabaseManager:
 
     # opens connections to database
     def open_conn(self):
-        return sqlite3.connect("assessment.db")
+        return sqlite3.connect("widgets.db")
 
     # returns formatted date and time
     def date_formatted(self):
