@@ -1,5 +1,4 @@
 #Do not change the value of these variables at all
-
 #Successful responses codes
 
 HTTP_STATUS_OK = 200
