@@ -16,7 +16,7 @@ export const getData = async (url) => {
       const specs = $(e).find('div.h2').text().replace('\n', ' ').trim().split(';');  
       const sku = $(e).find('p.sku').text().replace('SKU:', '').trim();
       const price = (($(e).find('div.price').text().trim()).substring(0, 9)).replace(/[^\d.-]/g, '');
-      const inStock = $(e).find('div.stock').text().trim();
+      const stock = $(e).find('div.stock').text().trim();
 
       const [ name, cpu, gpu, ram, storage ] = specs;
 
@@ -28,7 +28,7 @@ export const getData = async (url) => {
          storage,
          sku,
          price,
-         inStock,
+         stock,
       });
    });
 
