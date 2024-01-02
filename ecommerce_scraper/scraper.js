@@ -28,7 +28,7 @@ export const getData = async (url) => {
          storage,
          sku,
          price,
-         stock,
+         stock
       });
    });
 
