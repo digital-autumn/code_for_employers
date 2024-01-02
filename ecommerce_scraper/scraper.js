@@ -36,8 +36,7 @@ export const getData = async (url) => {
       if (err) throw err;
    });
 
-   const csv = converter.json2csv(data);
-   console.log(csv);
+   fs.appendFile('e_commerce.csv', converter.json2csv(data), (err) => {
+      if (err) throw err;
+   });
 };
-
-
