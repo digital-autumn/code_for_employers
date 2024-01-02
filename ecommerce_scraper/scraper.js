@@ -38,7 +38,6 @@ export const getData = async (url) => {
 
    const csv = converter.json2csv(data);
    console.log(csv);
-   
 };
 
 
