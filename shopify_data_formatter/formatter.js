@@ -14,8 +14,7 @@ const getData = async (url) => {
     const response = await fetch(url, 
       {
         headers: {
-          "Authorization": auth,
-          "Content-Type": "application/json"
+          "Authorization": auth
         }
       });
 
