@@ -2,36 +2,37 @@ import * as converter from 'json-2-csv';
 import * as url from '../bin/urls.js';
 import * as consts_vars from '../env/constants.js'; 
 import * as env_creds from '../env/env_creds.js';
-import base64 from 'base-64';
 import fs from 'fs';
 
 const getData = async (url) => {
 
-  const auth = `Basic ${base64.encode(`${env_creds.API_USERNAME}:${env_creds.API_KEY}`)}`;
-  //console.log(auth);
+  const auth = 'Basic '+btoa(`${env_creds.API_USERNAME}:${env_creds.API_KEY}`);
   
   try {
     const response = await fetch(url, 
-      {
+      { 
+        method: 'get',
         headers: {
-          "Authorization": auth
-        }
+          'Authorization': auth,
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        mode: 'cors',
+        cache: 'default'
       });
 
-      data = await response.json();
-      console.log(data);
+      const data = await response.json();
       
       return data;
 
   } catch (error) {
     console.error(error);
-  }
+  };
 };
 
-export const shopify_formatter = () => {
+export const shopify_formatter = async () => {
   
-  const prods = getData(url.all_prods);
-  const styles = getData(url.all_styles);
+  const prods = await getData(url.all_prods);
+  const styles = await getData(url.all_styles);
   const style_map = styles_map(styles);
 
   const formatted_data = [];
@@ -53,7 +54,7 @@ export const shopify_formatter = () => {
     const Variant_Weight_Unit = 'g';
     const Variant_Inventory = e.qty;
     const Variant_Inventory_Policy = 'deny';
-    const Variant_Image = url.activewear_web+set_image(e);
+    const Variant_Image = set_images(e);
     const Status = 'active';
 
     formatted_data.push({
@@ -82,24 +83,25 @@ export const shopify_formatter = () => {
   });
 };
 
-const add_hyphens = (str) => { return str.trim().replace(/\s+/g,'-').toLowerCase(); };
+const add_hyphens = (str) => str.trim().replace(/\s+/g,'-').toLowerCase();
 
-const set_image = (obj) => {
-  let image_src = "";
+const set_images = (obj) => {
 
-  if (obj.colorFrontImage !== "") image_src = obj.colorFrontImage;
+  let image_src = [];
 
-  else if (obj.colorBackImage !== "") image_src = obj.colorBackImage;
+  if (obj.colorFrontImage) image_src.push(url.activewear_web+obj.colorFrontImage);
 
-  else if (obj.colorSideImage !== "") image_src = obj.colorSideImage;
-  
-  else if (obj.colorDirectSideImage !== "") image_src = obj.colorDirectSideImage;
+  if (obj.colorBackImage) image_src.push(url.activewear_web+obj.colorBackImage);
 
-  else if (obj.colorOnModelFrontImage !== "") image_src = obj.colorOnModelFrontImage;
+  if (obj.colorSideImage) image_src.push(url.activewear_web+obj.colorSideImage);
 
-  else if (obj.colorOnModelSideImage !== "") image_src = obj.colorOnModelSideImage;
+  if (obj.colorDirectSideImage) image_src.push(url.activewear_web+obj.colorDirectSideImage);
 
-  else if (obj.colorOnModelBackImage !== "") image_src = obj.colorOnModelBackImage;
+  if (obj.colorOnModelFrontImage) image_src.push(url.activewear_web+obj.colorOnModelFrontImage);
+
+  if (obj.colorOnModelSideImage) image_src.push(url.activewear_web+obj.colorOnModelSideImage);
+
+  if (obj.colorOnModelBackImage) image_src.push(url.activewear_web+obj.colorOnModelBackImage);
 
   return image_src;
 };
